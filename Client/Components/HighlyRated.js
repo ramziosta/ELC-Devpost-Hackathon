@@ -73,7 +73,7 @@ const HighlyRated = ({ data }) => {
         <ProductAccessibilityTags data={features.slice(0, 1)} />
         {/* //< ------DATA HERE needs to have logic based YES --------------Buy It Again  */}
         <Text style={styles.buyItAgain} numberOfLines={1}>
-          {item.buyAgain}% would buy again
+          {item.buyAgain}1487 reviews
         </Text>
       </View>
     </TouchableOpacity>

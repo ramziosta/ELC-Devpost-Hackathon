@@ -13,6 +13,7 @@ import {
   features,
   highlyRated,
   accessibleBrands,
+  recentlyAdded,
 } from "../Constants/BeautyData";
 import {Data} from '../Constants/Data'
 console.log(Data);
@@ -31,7 +32,7 @@ const HomeScreen = (props) => {
           <FeaturesList data={features} />
           <HighlyRated data={highlyRated} />
           <AccessibleBrands data={accessibleBrands} />
-          <RecentlyAdded data={highlyRated} />
+          <RecentlyAdded data={recentlyAdded} />
         </View>
       </ScrollView>
     </View>

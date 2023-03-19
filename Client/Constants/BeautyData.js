@@ -434,21 +434,21 @@ const data = [
 const features = [
   {
     id: "1",
-    tag_list: "Easy Apply",
-    accessibilityIcon: require("../assets/icons/ri_hand-heart-line.png"),
+    tag_list: "No Tools",
+    accessibilityIcon: require("../assets/icons/tabler_brush-off.png"),
     rating: "A",
     heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
     screenName: "Category",
-    navigate: "ProductDetails",
   },
+ 
   {
     id: "2",
-    tag_list: "Ergonomic\n Design",
-    accessibilityIcon: require("../assets/icons/icon-park-outline_foundation-makeup.png"),
-    rating: "B",
+    tag_list: "Texture",
+    accessibilityIcon: require("../assets/icons/tabler_texture.png"),
+    screenName: "Category",
+    rating: "A",
     heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
     screenName: "Category",
-    navigate: "ProductDetails2",
   },
   {
     id: "3",
@@ -461,6 +461,35 @@ const features = [
   },
   {
     id: "4",
+    tag_list: "Tactile\n Markers",
+    accessibilityIcon: require("../assets/icons/brail.png"),
+    rating: "B",
+    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+    screenName: "Category",
+  },
+
+  {
+    id: "5",
+    tag_list: "Ergonomic\n Design",
+    accessibilityIcon: require("../assets/icons/icon-park-outline_foundation-makeup.png"),
+    rating: "B",
+    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+    screenName: "Category",
+    navigate: "ProductDetails2",
+  },
+  {
+    id: "6",
+    tag_list: "Easy Apply",
+    accessibilityIcon: require("../assets/icons/ri_hand-heart-line.png"),
+    rating: "A",
+    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+    screenName: "Category",
+    navigate: "ProductDetails",
+  },
+];
+const features2 = [
+  {
+    id: "1",
     tag_list: "No Tools",
     accessibilityIcon: require("../assets/icons/tabler_brush-off.png"),
     rating: "A",
@@ -468,7 +497,16 @@ const features = [
     screenName: "Category",
   },
   {
-    id: "5",
+    id: "3",
+    tag_list: "Ergonomic\n Design",
+    accessibilityIcon: require("../assets/icons/icon-park-outline_foundation-makeup.png"),
+    rating: "B",
+    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+    screenName: "Category",
+    navigate: "ProductDetails2",
+  },
+  {
+    id: "2",
     tag_list: "Texture",
     accessibilityIcon: require("../assets/icons/tabler_texture.png"),
     screenName: "Category",
@@ -476,15 +514,36 @@ const features = [
     heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
     screenName: "Category",
   },
-  {
-    id: "6",
-    tag_list: "Tactile\n Markers",
-    accessibilityIcon: require("../assets/icons/brail.png"),
-    rating: "B",
-    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-    screenName: "Category",
-  },
+
+  // {
+  //   id: "4",
+  //   tag_list: "Tactile\n Markers",
+  //   accessibilityIcon: require("../assets/icons/brail.png"),
+  //   rating: "B",
+  //   heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+  //   screenName: "Category",
+  // },
+  // {
+  //   id: "5",
+  //   tag_list: "Easy Open",
+  //   accessibilityIcon: require("../assets/icons/mdi_lock-open-outline.png"),
+  //   rating: "B",
+  //   heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+  //   screenName: "Category",
+  //   navigate: "ProductDetails3",
+  // },
+
+  // {
+  //   id: "6",
+  //   tag_list: "Easy Apply",
+  //   accessibilityIcon: require("../assets/icons/ri_hand-heart-line.png"),
+  //   rating: "A",
+  //   heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+  //   screenName: "Category",
+  //   navigate: "ProductDetails",
+  // },
 ];
+
 
 const highlyRated = [
   {
@@ -567,11 +626,13 @@ const highlyRated = [
 
 const recentlyAdded = [
   {
-    id: "1", //id
+    id: "6", //id
     text: "Brush blissful", //name
-    brand: "YSL",
-    api_featured_image: require("../assets/images/m11.jpeg"), //api_featured_image
-    review: "Pending Review", //!NEW
+    brand: "Bobby Brown",
+    api_featured_image: require("../assets/images/m16.jpeg"), //api_featured_image
+    review: "Pending Review",
+    rating: "B",
+    pending: "...", //!NEW
     screenName: "ThreeD",
   },
   {
@@ -580,21 +641,25 @@ const recentlyAdded = [
     brand: "Forbiden Beauty",
     api_featured_image: require("../assets/images/m14.jpeg"),
     review: "Pending Review",
+    rating: "B",
+    pending: "...",
     screenName: "ThreeD2",
   },
   {
-    id: "3",
+    id: "1",
     text: "Fabulous glowy",
     brand: "Gucci",
     api_featured_image: require("../assets/images/m17.jpeg"),
     review: "Pending Review",
+    rating: "B",
+    pending: "...",
     screenName: "ThreeD3",
   },
   {
     id: "4",
-    text: "Fluffly cream dream",
-    brand: "Bobbi Brown",
-    api_featured_image: require("../assets/images/m16.jpeg"),
+    text: "Lipstick Dreams",
+    brand: "Dreams",
+    api_featured_image: require("../assets/images/m1.jpeg"),
     review: "Pending Review",
   },
   {
@@ -603,9 +668,11 @@ const recentlyAdded = [
     brand: "Chanel",
     api_featured_image: require("../assets/images/m13.jpeg"),
     review: "Pending Review",
+    rating: "B",
+    pending: "...",
   },
   {
-    id: "6",
+    id: "1",
     text: "Hydrating lotion serene",
     brand: "Miss Swiss",
     api_featured_image: require("../assets/images/m15.jpeg"),
@@ -616,9 +683,9 @@ const recentlyAdded = [
 const accessibleBrands = [
   {
     id: "1", //id
-    brand: "Rare Beauty",
+    brand: "Poko",
     text: "Ergonomic Design", //tag_list
-    api_featured_image: require("../assets/images/m7.jpeg"),
+    api_featured_image: require("../assets/images/m12.jpeg"),
     brandLogo: require("../assets/icons/icon1.png"), //< assets????
   },
   {

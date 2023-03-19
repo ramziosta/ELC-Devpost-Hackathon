@@ -29,9 +29,9 @@ const FeaturesList = ({ data, handlePress }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      
+      <ScrollView>
         <View style={styles.header}>
-         
+       
           <TouchableOpacity style={styles.back} onPress={()=>nav.goBack()}>
             <Image style={styles.icon} source={require("../assets/png/chevron-left.png")} />
             <Text style={{ color: "white", alignSelf: "center", }}>Back</Text>
@@ -57,6 +57,7 @@ const FeaturesList = ({ data, handlePress }) => {
           numColumns={3}
         />
         <View style={{ height: 300 }}></View>
+        </ScrollView>
     </SafeAreaView>
   );
 };
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     flexWrap: "wrap",
     color: "white",
+    marginBottom: 20,
   },
   logo: {
     alignSelf: "center",
@@ -124,6 +126,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     position: "sticky",
+    marginPadding: 20,
   },
   icon :{
     marginLeft: 10,

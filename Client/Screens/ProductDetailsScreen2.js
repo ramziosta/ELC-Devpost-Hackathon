@@ -209,7 +209,7 @@ const ProductDetailsScreen2 = (props) => {
         <View>
           <Text style={styles.pageText}>Color Options:</Text>
           <View>
-            <ColorOptionsIcons data={productColorsIcons} />
+            <ColorOptionsIcons data={productColorsIcons.slice(0,4)} />
           </View>
         </View>
 

@@ -80,7 +80,7 @@ const HighlyRated = ({ data, handlePress }) => {
   return (
     <View>
     <View style={styles.horizontal}>
-        <Text style={styles.text}>Accessible Brands</Text>
+        <Text style={styles.text}>Recently Added</Text>
         {/* //< SEE ALL navigates to Category screen */}
         <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Category")}>
           <Text style={styles.text2}>See All </Text>

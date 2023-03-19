@@ -11,7 +11,7 @@ import {
   Modal,
   ScrollView,
 } from "react-native";
-import { productColorsIcons, features } from "../Constants/BeautyData";
+import { productColorsIcons, features, } from "../Constants/BeautyData";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import ProductAccessibilityTags from "../Components/ProductAccessibilityTags";
 import Card from "../Components/ReviewCard";
@@ -146,12 +146,13 @@ const Reviews = ({ navigation }) => {
                     resizeMode="contain"
                   />
                   {/* //< DATA HERE  DATE  */}
-                  <Text style={ReviewStyles.ratingText}>Yes </Text>
+                  <Text style={ReviewStyles.ratingText}>{item.rating}</Text>
                 </View>
                 <Text style={ReviewStyles.date}>1 month ago</Text>
               </View>
+              
               <Text style={ReviewStyles.title}>{item.title}</Text>
-              <Text style={ReviewStyles.text}>{item.title}</Text>
+              <Text style={ReviewStyles.text}>{item.body}</Text>
             </Card>
           </TouchableOpacity>
         )}
@@ -576,8 +577,8 @@ const styles = StyleSheet.create({
   },
   colorOptionsContainer: {
     alignItems: "center",
-    margin: 10,
-    padding: 1,
+    margin: 5,
+    padding: 0,
   },
   icon: {
     marginLeft: -10,

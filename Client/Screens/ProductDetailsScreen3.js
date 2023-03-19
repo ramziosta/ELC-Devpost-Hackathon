@@ -208,7 +208,7 @@ const ProductDetailsScreen3 = (props) => {
         <View>
           <Text style={styles.pageText}>Color Options:</Text>
           <View>
-            <ColorOptionsIcons data={productColorsIcons} />
+            <ColorOptionsIcons data={productColorsIcons.slice(0,3)} />
           </View>
         </View>
 
@@ -217,7 +217,7 @@ const ProductDetailsScreen3 = (props) => {
         <View style={styles.productHighlight}>
           <Text style={styles.highlightHeader}>Product Highlights</Text>
 
-          <ProductAccessibilityTags data={features.slice(0, 3)} />
+          <ProductAccessibilityTags  />
           <View style={styles.toggleBackground}>
             <ToggleProductDescription data={productColorsIcons} />
           </View>
