@@ -154,7 +154,7 @@ const ProductDetailsScreen4 = (props) => {
       <ScrollView>
         <Image
           style={styles.image}
-          source={require("../assets/images/m7.jpeg")}
+          source={require("../assets/images/eyeshadow.png")}
         />
 
         <Text
@@ -190,8 +190,8 @@ const ProductDetailsScreen4 = (props) => {
 
         <View style={styles.productNameContainer}>
           <View>
-            <Text style={styles.brandName}>{}Rare Beauty</Text>
-            <Text style={styles.productName}>{}Soft Pinch Liquid Blush</Text>
+            <Text style={styles.brandName}>{}Tom Ford</Text>
+            <Text style={styles.productName}>{}Eye Color Bold Eyeshadow Palette</Text>
           </View>
           <TouchableOpacity
             onPress={() => {

@@ -11,7 +11,7 @@ const SplashScreen = () => {
   
     useEffect(() => {
       const timer = setTimeout(() => {
-        navigation.navigate('Loading');
+        navigation.navigate('Info');
       }, 3000); // navigate to the new screen after 2 seconds
   
       // cleanup function to clear the timer when the component unmounts

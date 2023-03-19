@@ -191,8 +191,8 @@ const ProductDetailsScreen2 = (props) => {
 
         <View style={styles.productNameContainer}>
           <View>
-            <Text style={styles.brandName}>{}Rare Beauty</Text>
-            <Text style={styles.productName}>{}Soft Pinch Liquid Blush</Text>
+            <Text style={styles.brandName}>{}YSL</Text>
+            <Text style={styles.productName}>{}Slim Matte Longwear Lipstick</Text>
           </View>
           <TouchableOpacity
             onPress={() => {

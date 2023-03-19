@@ -83,9 +83,10 @@ const HighlyRated = ({ data }) => {
     <View>
       <View style={styles.horizontal}>
         <Text style={styles.text}>Highly Rated</Text>
-        {/* //< navigation only needs to go to category based on search result */}
-        <TouchableOpacity onPress={() => nav.navigate("Category")}>
-          <Text style={styles.text2}>See All ⌲</Text>
+        {/* //< SEE ALL navigates to Category screen */}
+        <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Category")}>
+          <Text style={styles.text2}>See All </Text>
+          <Image style={styles.rightArrow} source={require("../assets/png/rightArrow.png")} />
         </TouchableOpacity>
       </View>
       <FlatList
@@ -101,6 +102,15 @@ const HighlyRated = ({ data }) => {
 export default HighlyRated;
 
 const styles = StyleSheet.create({
+  rightArrow: {
+    marginRight: 10,
+  },
+  navContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+  },
   text: {
     display: "flex",
     flexDirection: "column",

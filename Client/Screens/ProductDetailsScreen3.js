@@ -190,8 +190,8 @@ const ProductDetailsScreen3 = (props) => {
 
         <View style={styles.productNameContainer}>
           <View>
-            <Text style={styles.brandName}>{}Rare Beauty</Text>
-            <Text style={styles.productName}>{}Soft Pinch Liquid Blush</Text>
+            <Text style={styles.brandName}>{}Skin Cuticals</Text>
+            <Text style={styles.productName}>{}C E Ferulic (1 fl. oz.)</Text>
           </View>
           <TouchableOpacity
             onPress={() => {

@@ -8,12 +8,8 @@ import {
 } from "react-native";
 
 const ProductAccessibilityTags = ({ data }) => {
-
     const renderItem = ({ item }) => (
-      
-      <View key={item.id}
-      style={styles.tagsBackgroundColor}>
-        {/* //< DATA HERE ----Tag List------ */}
+      <View style={styles.tagsBackgroundColor}>
         <Text style={styles.tags}>{item.tag_list}</Text>
       </View>
     );
@@ -21,7 +17,6 @@ const ProductAccessibilityTags = ({ data }) => {
     return (
       <View>
         <FlatList
-          
           data={data}
           horizontal={false}
           renderItem={renderItem}
@@ -46,6 +41,7 @@ const ProductAccessibilityTags = ({ data }) => {
       marginBottom: 20,
     },
     tags: {
+      alignSelf: "center",
       paddingHorizontal: 10,
       marginVertical: 5,
     },

@@ -22,13 +22,14 @@ const nav = useNavigation();
 
   return (
     <View >
-        <View style={styles.horizontal}>
-            <Text style={styles.title}>Browse Features</Text>
-            {/* //< navigation only needs to go to category based on search result */}
-            <TouchableOpacity  onPress={()=>nav.navigate("Category")}>
-            <Text style={styles.text}>See All ⌲</Text>
-            </TouchableOpacity>
-          </View>
+       <View style={styles.horizontal}>
+        <Text style={styles.title}>Features</Text>
+        {/* //< SEE ALL navigates to Category screen */}
+        <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Features")}>
+          <Text style={styles.text}>See All </Text>
+          <Image style={styles.rightArrow} source={require("../assets/png/rightArrow.png")} />
+        </TouchableOpacity>
+      </View>
 
       <FlatList
         data={data}
@@ -43,6 +44,15 @@ const nav = useNavigation();
 export default FeaturesList;
 
 const styles = StyleSheet.create({
+  rightArrow: {
+    marginRight: 10,
+  },
+  navContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+  },
   body: {
     display: "flex",
     justifyContent: "space-between",
@@ -116,80 +126,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     textAlignVertical: "center",
     padding: 3,
-  },
-  buyItAgain: {
-    color: "white",
-  },
-  textContainer: {
-    width: 200,
-    marginLeft: 10,
-    paddingLeft: 10,
-    paddingBottom: 10,
-    paddingTop: 10,
-    backgroundColor: "#434343",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-  },
-  accessibleImage: {
-    width: 300,
-    height: 300,
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    borderTopRightRadius: 20,
-    borderTopLeftRadius: 20,
-  },
-  accessibilityTextContainer: {
-    width: 300,
-    height: 80,
-    marginLeft: 10,
-    marginBottom: 30,
-    paddingLeft: 10,
-    paddingBottom: 10,
-    paddingTop: 10,
-    backgroundColor: "#434343",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
-  },
-  accessibleBrandNameText: {
-    color: "white",
-    fontWeight: 700,
-    fontSize: 18,
-    paddingBottom: 3,
-  },
-  accessibilityBrand: {
-    marginTop: 15,
-    fontWeight: 700,
-    fontSize: 18,
-  },
-  accessibilityText: {
-    color: "white",
-  },
-  iconContainer: {
-    top: 250,
-    left: 20,
-    position: "absolute",
-    borderRadius: 50,
-    zIndex: 6,
-  },
-  brandLogo: {
-    width: 50,
-    height: 50,
-    borderColor: "grey",
-    borderWidth: 3,
-    borderRadius: 50,
-  },
-  heartIconContainer: {
-    position: "absolute",
-    top: 160,
-    zIndex: 10,
-    left: 20,
-  },
-  heart: {},
-  pendingIconContainer: {
-    position: "absolute",
-    top: 150,
-    left: 160,
-  },
-  pending: {},
+  }
+ 
 });

@@ -11,13 +11,8 @@ export default function ReviewCard(props) {
 
 const styles = StyleSheet.create({
   ReviewCard: {
-    borderRadius: 12,
-    elevation: 5,
-    backgroundColor: '#fff',
-    shadowOffset: { width: 5, height: 5 },
-    shadowColor: '#333',
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
+    backgroundColor: '#434343',
+
     marginHorizontal: 4,
     marginVertical: 6,
   },

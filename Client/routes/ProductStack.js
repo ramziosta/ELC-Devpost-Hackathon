@@ -6,11 +6,13 @@ import {
   ARScreen,
   HomeScreen,
   CategoryScreen,
+  FeaturesScreen,
   ProductDetailsScreen,
   ProductDetailsScreen2,
   ProductDetailsScreen3,
   ProductDetailsScreen4,
   ReviewScreen,
+  ConfirmationScreen,
   ReviewDetailsScreen,
   ThreeDScreen,
   ThreeDScreen2,
@@ -27,12 +29,14 @@ const ProductStack = () => {
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Main" component={HomeScreen} />
+      <Stack.Screen name="Features" component={FeaturesScreen} />
       <Stack.Screen name="Category" component={CategoryScreen} />
       <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
       <Stack.Screen name="ProductDetails2" component={ProductDetailsScreen2} />
       <Stack.Screen name="ProductDetails3" component={ProductDetailsScreen3} />
       <Stack.Screen name="ProductDetails4" component={ProductDetailsScreen4} />
       <Stack.Screen name="Review" component={ReviewScreen} />
+      <Stack.Screen name="Confirmation" component={ConfirmationScreen} />
       <Stack.Screen name="ReviewDetails" component={ReviewDetailsScreen} />
       <Stack.Screen name="ThreeD" component={ThreeDScreen} />
       <Stack.Screen name="ThreeD2" component={ThreeDScreen2} />

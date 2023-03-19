@@ -49,8 +49,9 @@ const AccessibleBrands = ({ data, handlePress }) => {
       <View style={styles.horizontal}>
         <Text style={styles.text}>Accessible Brands</Text>
         {/* //< SEE ALL navigates to Category screen */}
-        <TouchableOpacity onPress={() => nav.navigate("Category")}>
-          <Text style={styles.text2}>See All ⌲</Text>
+        <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Category")}>
+          <Text style={styles.text2}>See All </Text>
+          <Image style={styles.rightArrow} source={require("../assets/png/rightArrow.png")} />
         </TouchableOpacity>
       </View>
       <FlatList
@@ -66,6 +67,15 @@ const AccessibleBrands = ({ data, handlePress }) => {
 export default AccessibleBrands;
 
 const styles = StyleSheet.create({
+  rightArrow: {
+    marginRight: 10,
+  },
+  navContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+  },
   text: {
     display: "flex",
     flexDirection: "column",
