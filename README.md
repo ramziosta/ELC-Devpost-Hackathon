@@ -31,6 +31,6 @@ To use the Accessible Beauty Hackathon app, follow these simple steps:
 To get a better understanding of the app's features and capabilities, check out our demo video on YouTube at [insert YouTube link here].
 
 
-[![IMAGE ALT TEXT HERE](./assets/images/simulator_screenshot_7DBC1025-DBF6-41A3-8387-9EC58BC8BC69.png)](https://drive.google.com/file/d/1xOVtf8VzF7qrC4IozUrDA_yKkQc1XG88/view)
+[![IMAGE ALT TEXT HERE](./client/assets/images/simulator_screenshot_7DBC1025-DBF6-41A3-8387-9EC58BC8BC69.png)](https://drive.google.com/file/d/1xOVtf8VzF7qrC4IozUrDA_yKkQc1XG88/view)
 
 
