@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     display: "flex",
     justifyContent: "center",
     alignSelf: "center",
-    marginTop: 30,
+    marginTop: 35,
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,

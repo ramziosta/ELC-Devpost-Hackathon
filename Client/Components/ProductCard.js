@@ -59,13 +59,14 @@ export default productCard = ({ item: { item, index }, nav }) => {
 
 const productCardStyles = StyleSheet.create({
   container: {
-    width: 200,
-    marginLeft: 10,
+    width: 180,
+    marginRight: 10,
     backgroundColor: "#434343",
     borderRadius: 20,
+    marginBottom: 20,
   },
   image: {
-    width: 200,
+    width: 180,
     height: 200,
     marginBottom: 10,
     marginRight: 10,
@@ -101,7 +102,7 @@ const productCardStyles = StyleSheet.create({
   pendingIconContainer: {
     position: "absolute",
     top: 15,
-    left: 160,
+    left: 140,
   },
   ratingContainer: {
     backgroundColor: "black",

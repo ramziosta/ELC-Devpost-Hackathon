@@ -489,62 +489,7 @@ const features = [
     navigate: "ProductDetails",
   },
 ];
-const features2 = [
-  {
-    id: "1",
-    tag_list: "No Tools",
-    accessibilityIcon: require("../assets/icons/tabler_brush-off.png"),
-    rating: "A",
-    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-    screenName: "Category",
-  },
-  {
-    id: "3",
-    tag_list: "Ergonomic\n Design",
-    accessibilityIcon: require("../assets/icons/icon-park-outline_foundation-makeup.png"),
-    rating: "B",
-    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-    screenName: "Category",
-    navigate: "ProductDetails2",
-  },
-  {
-    id: "2",
-    tag_list: "Texture",
-    accessibilityIcon: require("../assets/icons/tabler_texture.png"),
-    screenName: "Category",
-    rating: "A",
-    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-    screenName: "Category",
-  },
 
-  // {
-  //   id: "4",
-  //   tag_list: "Tactile\n Markers",
-  //   accessibilityIcon: require("../assets/icons/brail.png"),
-  //   rating: "B",
-  //   heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-  //   screenName: "Category",
-  // },
-  // {
-  //   id: "5",
-  //   tag_list: "Easy Open",
-  //   accessibilityIcon: require("../assets/icons/mdi_lock-open-outline.png"),
-  //   rating: "B",
-  //   heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-  //   screenName: "Category",
-  //   navigate: "ProductDetails3",
-  // },
-
-  // {
-  //   id: "6",
-  //   tag_list: "Easy Apply",
-  //   accessibilityIcon: require("../assets/icons/ri_hand-heart-line.png"),
-  //   rating: "A",
-  //   heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-  //   screenName: "Category",
-  //   navigate: "ProductDetails",
-  // },
-];
 
 
 const highlyRated = [
@@ -629,7 +574,7 @@ const highlyRated = [
 const recentlyAdded = [
   {
     id: "6", //id
-    text: "Brush blissful", //name
+    name: "Brush blissful", //name
     brand: "Bobby Brown",
     api_featured_image: require("../assets/images/m16.jpeg"), //api_featured_image
     review: "Pending Review",
@@ -639,7 +584,7 @@ const recentlyAdded = [
   },
   {
     id: "2",
-    text: "Rejuvenate bubbly",
+    name: "Rejuvenate bubbly",
     brand: "Forbiden Beauty",
     api_featured_image: require("../assets/images/m14.jpeg"),
     review: "Pending Review",
@@ -649,7 +594,7 @@ const recentlyAdded = [
   },
   {
     id: "1",
-    text: "Fabulous glowy",
+    name: "Fabulous glowy",
     brand: "Gucci",
     api_featured_image: require("../assets/images/m17.jpeg"),
     review: "Pending Review",
@@ -659,14 +604,14 @@ const recentlyAdded = [
   },
   {
     id: "4",
-    text: "Lipstick Dreams",
+    name: "Lipstick Dreams",
     brand: "Dreams",
     api_featured_image: require("../assets/images/m1.jpeg"),
     review: "Pending Review",
   },
   {
     id: "5",
-    text: "Lipstick Berlin marvelous",
+    name: "Lipstick Berlin marvelous",
     brand: "Chanel",
     api_featured_image: require("../assets/images/m13.jpeg"),
     review: "Pending Review",
@@ -675,7 +620,7 @@ const recentlyAdded = [
   },
   {
     id: "1",
-    text: "Hydrating lotion serene",
+    name: "Hydrating lotion serene",
     brand: "Miss Swiss",
     api_featured_image: require("../assets/images/m15.jpeg"),
     review: "Pending Review",

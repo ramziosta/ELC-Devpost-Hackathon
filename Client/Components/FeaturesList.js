@@ -22,7 +22,7 @@ const FeaturesList = ({ data }) => {
   return (
     <View >
       <View style={styles.horizontal}>
-        <Text style={styles.title}>Features</Text>
+        <Text style={styles.title}>Browse Features</Text>
         {/* //< SEE ALL navigates to Category screen */}
         {/* <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Features")}>
           <Text style={styles.text}>See All </Text>

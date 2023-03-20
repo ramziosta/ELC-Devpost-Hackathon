@@ -43,7 +43,7 @@ const TabsNavigation = () => {
       />
       <Tab.Screen
         name="Favorite"
-        component={ProductsListTest}
+        component={FavoriteScreen}
         options={{
           tabBarLabel: "Favorite",
 
