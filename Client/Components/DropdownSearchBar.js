@@ -76,6 +76,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     color: "black",
     borderRadius: 50,
+   
+  
   },
   modal: {
     flex: 1,
