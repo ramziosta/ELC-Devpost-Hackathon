@@ -185,7 +185,7 @@ const ColorOptionsIcons = ({ data }) => {
         data={data}
         renderItem={renderItem}
         keyExtractor={(item) => item.key}
-        numColumns={6}
+        numColumns={4}
       />
     </View>
   );
@@ -221,18 +221,6 @@ const ProductDetailsScreen = (props) => {
             }}
           >
             <Text style={styles.buttonText}>View In 3D</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.tryItOn]}
-            title="Try It On"
-            onPress={() => {
-              nav.navigate("AR");
-            }}
-          >
-            <Text style={[styles.tryItOnText, styles.buttonText]}>
-              Try It On
-            </Text>
           </TouchableOpacity>
         </View>
 
@@ -528,7 +516,7 @@ const styles = StyleSheet.create({
   button: {
     position: "relative",
     borderRadius: 50,
-    width: 160,
+    width: 360,
   },
   viewInThreeD: {
     backgroundColor: "#E3C3FF",
@@ -573,22 +561,21 @@ const styles = StyleSheet.create({
   iconsText: {
     fontSize: 20,
     color: "white",
-    marginVertical: 2,
+    marginVertical: 10,
+    alignSelf: "center",
   },
   colorOptionsContainer: {
-    alignItems: "center",
     display: "flex",
-    justifyContent: "center",
     flexDirection: "column",
-    textAlign: "center",
-    margin: 5,
-    padding: 0,
+    justifyContent: "center",
+    width: 90,
+
+    
   },
   icon: {
-    marginLeft: -10,
+    alignSelf: "center",
     resizeMode: "contain",
-    width: 42,
-    height: 42,
+
   },
   divider: {
     borderBottomColor: "#FFF",
@@ -597,7 +584,8 @@ const styles = StyleSheet.create({
   },
   highlightHeader: {
     color: "white",
-    fontSize: 16,
+    fontSize: 18,
+    marginHorizontal: 10,
   },
   tagsBackgroundColor: {
     backgroundColor: "#FFF3C3",
@@ -776,6 +764,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 700,
     color: "white",
-    marginVertical: 2,
+    marginVertical: 10,
   },
 });

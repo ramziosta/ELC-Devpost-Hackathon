@@ -154,7 +154,7 @@ const ProductDetailsScreen4 = (props) => {
       <ScrollView>
         <Image
           style={styles.image}
-          source={require("../assets/images/eyeshadow.png")}
+          source={require("../assets/images/eyeshadow2.png")}
         />
 
         <Text
@@ -163,7 +163,7 @@ const ProductDetailsScreen4 = (props) => {
           onPress={() => props.navigation.goBack()}
         >
           ← Back
-        </Text> 
+        </Text>
         <View style={styles.buttonsContainer}>
           <TouchableOpacity
             style={[styles.button, styles.viewInThreeD]}
@@ -174,24 +174,14 @@ const ProductDetailsScreen4 = (props) => {
           >
             <Text style={styles.buttonText}>View In 3D</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity
-            style={[styles.button, styles.tryItOn]}
-            title="Try It On"
-            onPress={() => {
-              nav.navigate("AR");
-            }}
-          >
-            <Text style={[styles.tryItOnText, styles.buttonText]}>
-              Try It On
-            </Text>
-          </TouchableOpacity>
         </View>
 
         <View style={styles.productNameContainer}>
           <View>
-            <Text style={styles.brandName}>{}Tom Ford</Text>
-            <Text style={styles.productName}>{}Eye Color Bold Eyeshadow Palette</Text>
+            <Text style={styles.brandName}>{}Huda Beauty</Text>
+            <Text style={styles.productName}>
+              {}Nude Obsessions Eyeshadow Palette
+            </Text>
           </View>
           <TouchableOpacity
             onPress={() => {
@@ -208,7 +198,7 @@ const ProductDetailsScreen4 = (props) => {
         <View>
           <Text style={styles.pageText}>Color Options:</Text>
           <View>
-            <ColorOptionsIcons data={productColorsIcons.slice(0,5)} />
+            <ColorOptionsIcons data={productColorsIcons.slice(0, 5)} />
           </View>
         </View>
 
@@ -321,6 +311,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   image: {
+    alignSelf: "center",
     width: 450,
     height: 450,
   },
@@ -334,7 +325,7 @@ const styles = StyleSheet.create({
   button: {
     position: "relative",
     borderRadius: 50,
-    width: 160,
+    width: 360,
   },
   viewInThreeD: {
     backgroundColor: "#E3C3FF",
@@ -376,18 +367,18 @@ const styles = StyleSheet.create({
   iconsText: {
     fontSize: 20,
     color: "white",
-    marginVertical: 2,
+    marginVertical: 10,
+    alignSelf: "center",
   },
   colorOptionsContainer: {
-    alignItems: "center",
-    margin: 10,
-    padding: 1,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    width: 90,
   },
   icon: {
-    marginLeft: -10,
+    alignSelf: "center",
     resizeMode: "contain",
-    width: 42,
-    height: 42,
   },
   divider: {
     borderBottomColor: "#FFF",
@@ -437,11 +428,12 @@ const styles = StyleSheet.create({
   howRatingsWork: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-end",
+
     marginRight: 10,
     alignItems: "center",
   },
   howRatingsWorkText: {
+    fontSize: 18,
     color: "white",
   },
   ratingsHeaderText: {
@@ -475,14 +467,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#E3C3FF",
   },
   prosContainer: {
-    width: 210,
+    width: 200,
     height: 150,
     paddingLeft: 15,
     paddingRight: 10,
     backgroundColor: "#111111",
   },
   consContainer: {
-    width: 220,
+    width: 200,
     height: 150,
     marginLeft: 2,
     paddingRight: 10,
@@ -561,6 +553,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 700,
     color: "white",
-    marginVertical: 2,
+    marginBottom: 10,
   },
 });

@@ -31,7 +31,7 @@ const ConfirmationScreen = (props) => {
           //< NEEDS NAVIGATION AND SEND TO DB
           onPress={() => nav.navigate("ProductDetails")}
         >
-          <Text style={styles.submitText}>Back to Products</Text>
+          <Text style={styles.submitText}>Back to Product</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

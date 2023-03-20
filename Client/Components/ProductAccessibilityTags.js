@@ -56,6 +56,8 @@ const ProductAccessibilityTags = ({ data }) => {
       paddingHorizontal: 10,
       marginVertical: 5,
       paddingVertical: 5,
+      fontSize: 16,
+      fontWeight:500,
     },
    
   });

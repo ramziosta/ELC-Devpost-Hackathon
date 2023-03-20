@@ -432,8 +432,18 @@ const data = [
 ];
 
 const features = [
+
   {
     id: "1",
+    tag_list: "Easy Open",
+    accessibilityIcon: require("../assets/icons/mdi_lock-open-outline.png"),
+    rating: "B",
+    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
+    screenName: "Category",
+    navigate: "ProductDetails3",
+  },
+  {
+    id: "3",
     tag_list: "No Tools",
     accessibilityIcon: require("../assets/icons/tabler_brush-off.png"),
     rating: "A",
@@ -450,15 +460,7 @@ const features = [
     heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
     screenName: "Category",
   },
-  {
-    id: "3",
-    tag_list: "Easy Open",
-    accessibilityIcon: require("../assets/icons/mdi_lock-open-outline.png"),
-    rating: "B",
-    heart: require("../assets/icons/mdi_cards-heart-outline-white.png"),
-    screenName: "Category",
-    navigate: "ProductDetails3",
-  },
+ 
   {
     id: "4",
     tag_list: "Tactile\n Markers",
@@ -561,9 +563,9 @@ const highlyRated = [
   },
   {
     id: "2",
-    brand: "YSL",
-    name: "Slim Matte Longwear Lipstick",
-    api_featured_image: require("../assets/images/m11.jpeg"),
+    brand: "Tarte",
+    name: "Tarte Rainforest Of The Sea Color Splash Lipstick Popsicle",
+    api_featured_image: require("../assets/images/lipstick2.jpeg"),
     accessibility: "Texture",
     buyItAgain: 90,
     numberOfReviews: 2014,
@@ -587,9 +589,9 @@ const highlyRated = [
   },
   {
     id: "4",
-    brand: "TOM FORD",
-    name: "Eye Color Bold Eyeshadow Palette",
-    api_featured_image: require("../assets/images/eyeshadow.png"),
+    brand: "Huda Beauty",
+    name: "Nude Obsessions Eyeshadow Palette",
+    api_featured_image: require("../assets/images/eyeshadow2.png"),
     accessibility: "No Tools",
     buyItAgain: 92,
     numberOfReviews: 1294,

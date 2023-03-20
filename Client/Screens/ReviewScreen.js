@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
   },
   consLabel: {
     fontSize: 18,
-    fontWeight: "bold",
+    fontWeight: 700,
     marginBottom: 8,
   },
   consContainer: {
@@ -277,13 +277,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff3c3",
   },
   consButtonText: {
+    fontWeight: 500,
     textAlign: "center",
     color: "black",
     paddingHorizontal: 20,
   },
   headerText: {
     color: "white",
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "bold",
     marginVertical: 10,
   },
@@ -293,11 +294,12 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   text: {
+    fontSize: 18,
     color: "#ffffff",
   },
   accessibleText: {
     color: "white",
-    fontSize: 16,
+    fontSize: 18,
     textAlign: "center",
     marginVertical: 10,
     maxWidth: 300,
@@ -322,7 +324,7 @@ const styles = StyleSheet.create({
   },
   submitText: {
     textAlign: "center",
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
     marginVertical: 10,
     alignSelf: "center",

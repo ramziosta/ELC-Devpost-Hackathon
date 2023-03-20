@@ -12,37 +12,18 @@ const ThreeDScreen3 = () => {
         source={{ uri: "https://app.vectary.com/p/46e37tHYb6euVgFOCSyzVE"    }}
       />
 
-<View style={styles.slideButtons} >
-  
-  <Button
-    title="On You"
-    onPress={() => {}}
-    color="#111111"
-    style={styles.threeDButton}
-    
-  />
-      <Button
-    title="View 3D"
 
-    onPress={() => {nav.navigate("AR")}}
-    color="#111111"
-  />
-</View>
 <View style={styles.button} >
 <Button
 
-    title="X"
+    title="X Cancel"
     onPress={() => {
       nav.navigate("ProductDetails3");
     }}
     color="#111111"
   />
   </View>
-  <TouchableOpacity style={styles.openItem} onPress={() => {}} >
-    <Text>
-      Open Item
-    </Text>
-  </TouchableOpacity>
+
 
 </SafeAreaView>
 );

@@ -175,17 +175,6 @@ const ProductDetailsScreen3 = (props) => {
             <Text style={styles.buttonText}>View In 3D</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={[styles.button, styles.tryItOn]}
-            title="Try It On"
-            onPress={() => {
-              nav.navigate("AR");
-            }}
-          >
-            <Text style={[styles.tryItOnText, styles.buttonText]}>
-              Try It On
-            </Text>
-          </TouchableOpacity>
         </View>
 
         <View style={styles.productNameContainer}>
@@ -334,7 +323,7 @@ const styles = StyleSheet.create({
   button: {
     position: "relative",
     borderRadius: 50,
-    width: 160,
+    width: 360,
   },
   viewInThreeD: {
     backgroundColor: "#E3C3FF",
@@ -376,18 +365,18 @@ const styles = StyleSheet.create({
   iconsText: {
     fontSize: 20,
     color: "white",
-    marginVertical: 2,
+    marginVertical: 10,
+    alignSelf: "center",
   },
   colorOptionsContainer: {
-    alignItems: "center",
-    margin: 10,
-    padding: 1,
+width: 90,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
   },
   icon: {
-    marginLeft: -10,
+   alignSelf: "center",
     resizeMode: "contain",
-    width: 42,
-    height: 42,
   },
   divider: {
     borderBottomColor: "#FFF",
@@ -396,7 +385,8 @@ const styles = StyleSheet.create({
   },
   highlightHeader: {
     color: "white",
-    fontSize: 16,
+    fontSize: 18,
+    margin: 10,
   },
   tagsBackgroundColor: {
     backgroundColor: "#FFF3C3",
@@ -437,11 +427,11 @@ const styles = StyleSheet.create({
   howRatingsWork: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "flex-end",
     marginRight: 10,
     alignItems: "center",
   },
   howRatingsWorkText: {
+    fontSize: 18,
     color: "white",
   },
   ratingsHeaderText: {
@@ -475,14 +465,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#E3C3FF",
   },
   prosContainer: {
-    width: 210,
+    width: 200,
     height: 150,
     paddingLeft: 15,
     paddingRight: 10,
     backgroundColor: "#111111",
   },
   consContainer: {
-    width: 220,
+    width: 200,
     height: 150,
     marginLeft: 2,
     paddingRight: 10,
@@ -561,6 +551,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 700,
     color: "white",
-    marginVertical: 2,
+    marginBottom:10,
   },
 });
