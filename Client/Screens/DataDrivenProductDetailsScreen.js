@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import {
+  KeyboardAvoidingView,
+  TextInput,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Button,
   StyleSheet,
   Text,
   View,
@@ -11,72 +17,90 @@ import {
   Modal,
   ScrollView,
 } from "react-native";
-import { productColorsIcons, features, } from "../Constants/BeautyData";
+import { productColorsIcons, features } from "../Constants/BeautyData";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import ProductAccessibilityTags from "../Components/ProductAccessibilityTags";
 import Card from "../Components/ReviewCard";
 import { db } from "../config";
 import { collection, getDocs } from "firebase/firestore";
 import { Ionicons } from "@expo/vector-icons";
-import Collapsible from 'react-native-collapsible';
 
+const ToggleProductDescription = ({ item }) => {
+  const [
+    isProductDescriptionModalVisible,
+    setIsProductDescriptionModalVisible,
+  ] = useState(false);
 
+  const handleTextClick = () => {
+    setIsProductDescriptionModalVisible(true);
+  };
 
-const DropdownDescription = (props) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const [iconSource, setIconSource] = useState(require("../assets/icons/tabler_chevron-down.png"));
-
-  const toggleAccordion = () => {
-    setIsCollapsed(!isCollapsed);
-    if (iconSource === require("../assets/icons/tabler_chevron-down.png")) {
-      setIconSource(require("../assets/png/upArrow.png"));
-    } else {
-      setIconSource(require("../assets/icons/tabler_chevron-down.png"));
-    }
+  const handleModalClose = () => {
+    setIsProductDescriptionModalVisible(false);
   };
 
   return (
-    <View style={DropdownStyles.container}>
-      <TouchableOpacity onPress={toggleAccordion} style={DropdownStyles.header}>
-        <Text style={DropdownStyles.headerText}>Product Description</Text>
-        <Image source={iconSource} />
+    <View>
+      <TouchableOpacity
+        onPress={handleTextClick}
+        style={styles.toggleContainer}
+      >
+        <Text style={styles.toggleText}>Product Description</Text>
+
+        {/* //< DATA HERE------ Icon can stay in app */}
+        <Image
+          style={styles.toggleImage}
+          source={require("../assets/icons/tabler_chevron-down.png")}
+        />
       </TouchableOpacity>
-      <Collapsible collapsed={isCollapsed}>
-        <View style={DropdownStyles.content}>
-          <Text style={DropdownStyles.text} >A weightless, longlasting liquid blush that blends and builds beautifully for a soft, healthy flush. Available in matte and dewy finishes.</Text>
-          <Text style={DropdownStyles.text} >This product is an Allure Best of Beauty award winner.</Text>
-        </View>
-      </Collapsible>
+      <Modal visible={isProductDescriptionModalVisible} animationType="slide">
+        <SafeAreaView>
+          {/* //< DATA HERE {item.description}  --------------------- */}
+          <Text style={styles.text}>{item.description}</Text>
+
+          <TouchableOpacity onPress={handleModalClose}>
+            <Text style={styles.text}>Close</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </Modal>
     </View>
   );
 };
 
-const DropdownHowTo = (props) => {
-  const [isCollapsed, setIsCollapsed] = useState(true);
-  const [iconSource, setIconSource] = useState(require("../assets/icons/tabler_chevron-down.png"));
+const ToggleHowToUse = ({ data }) => {
+  const [isHowToModal, setIsHowToModal] = useState(false);
 
-  const toggleAccordion = () => {
-    setIsCollapsed(!isCollapsed);
-    if (iconSource === require("../assets/icons/tabler_chevron-down.png")) {
-      setIconSource(require("../assets/png/upArrow.png"));
-    } else {
-      setIconSource(require("../assets/icons/tabler_chevron-down.png"));
-    }
+  const handleTextClick = () => {
+    setIsHowToModal(true);
+  };
+
+  const handleModalClose = () => {
+    setIsHowToModal(false);
   };
 
   return (
-    <View style={DropdownStyles.container}>
-      <TouchableOpacity onPress={toggleAccordion} style={DropdownStyles.header}>
-        <Text style={DropdownStyles.headerText}>How to Use</Text>
-        <Image source={iconSource} />
+    <View>
+      <TouchableOpacity
+        onPress={handleTextClick}
+        style={styles.toggleContainer}
+      >
+        <Text style={styles.toggleText}>How To Use</Text>
+
+        {/* //< DATA HERE --------- Icon can stay in App */}
+        <Image
+          style={styles.toggleImage}
+          source={require("../assets/icons/tabler_chevron-down.png")}
+        />
       </TouchableOpacity>
-      <Collapsible collapsed={isCollapsed}>
-        <View style={DropdownStyles.content}>
-          <Text style={DropdownStyles.text} >Gently remove excess product from applicator</Text>
-          <Text style={DropdownStyles.text} >Use the doe-foot applicator and place 1-2 dots on each cheek.</Text>
-          <Text style={DropdownStyles.text} >Use fingers and gently pat into skin for a seamless finish.</Text>
-        </View>
-      </Collapsible>
+      <Modal visible={isHowToModal} animationType="slide">
+        <SafeAreaView>
+          {/* //< DATA HERE ----------- {item.content} */}
+          <Text style={styles.text}>This is the content of the modal</Text>
+          <TouchableOpacity onPress={handleModalClose}>
+            <Text style={styles.text}>Close modal</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </Modal>
     </View>
   );
 };
@@ -99,7 +123,7 @@ const LeaveReviewButton = ({ data }) => {
         style={styles.leaveReviewButton}
         onPress={() => nav.navigate("Review")}
       >
-        <Text style={styles.leaveReviewText}>Leave Review </Text>
+        <Text style={styles.leaveReviewText}>Leave Review</Text>
       </TouchableOpacity>
     </View>
   );
@@ -138,21 +162,7 @@ const Reviews = ({ navigation }) => {
           <TouchableOpacity onPress={() => nav.navigate("ReviewDetails", item)}>
             {/* //< DATA HERE -----------------------  */}
             <Card>
-              <View style={ReviewStyles.ratingsHeaderContainer}>
-                <View style={ReviewStyles.rating}>
-                  <Image
-                    style={ReviewStyles.image}
-                    source={require("../assets/png/gg_smile-mouth-open.png")}
-                    resizeMode="contain"
-                  />
-                  {/* //< DATA HERE  DATE  */}
-                  <Text style={ReviewStyles.ratingText}>{item.rating}</Text>
-                </View>
-                <Text style={ReviewStyles.date}>1 month ago</Text>
-              </View>
-
-              <Text style={ReviewStyles.title}>{item.title}</Text>
-              <Text style={ReviewStyles.text}>{item.body}</Text>
+              <Text style={{ color: "black" }}>{item.title}</Text>
             </Card>
           </TouchableOpacity>
         )}
@@ -161,15 +171,46 @@ const Reviews = ({ navigation }) => {
   );
 };
 
+const PinkButton = () => {
+  const [isOnYou, setIsOnYou] = useState(false);
+  const nav = useNavigation();
+
+  const handlePress = () => {
+    if (isOnYou) {
+      setIsOnYou(false);
+      nav.navigate("ThreeD");
+    } else {
+      setIsOnYou(true);
+      nav.navigate("AR");
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={[styles.button, isOnYou ? styles.onYou : null]}
+          onPress={handlePress}
+        >
+          <Text style={styles.buttonText}>
+            {isOnYou ? "On you" : "View 3d"}
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
 //! NEEDS ALL NEW WORK!!!!!!!!!!!!
 const ColorOptionsIcons = ({ data }) => {
   const renderItem = ({ item }) => (
     <View style={styles.colorOptionsContainer}>
+      {/* */}
       <TouchableOpacity>
         <Image
-          source={item.ColorOptionsIcon}
+          source={item.product_colors}
           style={styles.icon}
-          data={item.iconHex}
+          data={item.colour_name}
         />
       </TouchableOpacity>
 
@@ -184,25 +225,90 @@ const ColorOptionsIcons = ({ data }) => {
       <FlatList
         data={data}
         renderItem={renderItem}
-        keyExtractor={(item) => item.key}
+        keyExtractor={(item) => item.id}
         numColumns={6}
       />
     </View>
   );
 };
 
-const ProductDetailsScreen = (props) => {
+const MyModal = () => {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <Text>Show Modal</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const AccordionModal = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalHeight, setModalHeight] = useState(new Animated.Value(0));
+
+  const toggleModal = () => {
+    if (modalVisible) {
+      Animated.timing(modalHeight, {
+        toValue: 0,
+        duration: 300,
+        useNativeDriver: false,
+      }).start(() => setModalVisible(false));
+    } else {
+      setModalVisible(true);
+      Animated.timing(modalHeight, {
+        toValue: 300,
+        duration: 300,
+        useNativeDriver: false,
+      }).start();
+    }
+  };
+
+  return (
+    <View style={{ flex: 1 }}>
+      <TouchableWithoutFeedback onPress={toggleModal}>
+        <View style={{ backgroundColor: "lightblue", padding: 20 }}>
+          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+            Accordion Modal
+          </Text>
+        </View>
+      </TouchableWithoutFeedback>
+
+      <Modal visible={modalVisible} transparent={true}>
+        <TouchableWithoutFeedback onPress={toggleModal}>
+          <View style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+            <Animated.View
+              style={{
+                backgroundColor: "white",
+                height: modalHeight,
+                padding: 20,
+              }}
+            >
+              <Text style={{ fontSize: 16 }}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
+                aliquam, erat quis porttitor pharetra, sem mi imperdiet leo, ac
+                venenatis tellus nunc eget sapien. Aenean vel neque id arcu
+                dictum convallis. Sed sed turpis at lectus aliquet blandit vel
+                vitae mi.
+              </Text>
+            </Animated.View>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+    </View>
+  );
+};
+
+const DataDrivenProductDetailsScreen = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [favorite, setFavorite] = useState(false);
-
   const nav = useNavigation();
-
+  const { item } = props.route.params;
   return (
     <SafeAreaView style={styles.body}>
       <ScrollView>
         <Image
           style={styles.image}
-          source={require("../assets/images/demo.png")}
+          source={{ uri: item.api_featured_image.replace(/^\/\//, "https://") }}
         />
 
         <Text
@@ -212,12 +318,13 @@ const ProductDetailsScreen = (props) => {
         >
           ← Back
         </Text>
+
         <View style={styles.buttonsContainer}>
           <TouchableOpacity
             style={[styles.button, styles.viewInThreeD]}
             title="View In 3D"
             onPress={() => {
-              nav.navigate("ThreeD");
+              nav.navigate("ThreeD", { item });
             }}
           >
             <Text style={styles.buttonText}>View In 3D</Text>
@@ -238,17 +345,24 @@ const ProductDetailsScreen = (props) => {
 
         <View style={styles.productNameContainer}>
           <View>
-            <Text style={styles.brandName}>{ }Rare Beauty</Text>
-            <Text style={styles.productName}>{ }Soft Pinch Liquid Blush</Text>
+            <Text style={styles.brandName}>{item.brand}</Text>
+
+            <Text style={styles.productName}>{item.name}</Text>
           </View>
-          <TouchableOpacity style={styles.fav}
+
+          <TouchableOpacity
             onPress={() => {
               setFavorite(!favorite);
             }}
           >
             <Image
               style={styles.favoriteIcon}
-              source={require("../assets/icons/mdi_cards-heart-outline-white.png")}
+              //< DATA HERE ----------ICON can stay in App
+              source={
+                favorite
+                  ? require("../assets/icons/mdi_cards-heart-pink.png")
+                  : require("../assets/icons/mdi_cards-heart-outline-white.png")
+              }
             />
           </TouchableOpacity>
         </View>
@@ -256,7 +370,8 @@ const ProductDetailsScreen = (props) => {
         <View>
           <Text style={styles.pageText}>Color Options:</Text>
           <View>
-            <ColorOptionsIcons data={productColorsIcons} />
+            {/* //< NEEDS TO TO TAKE HEX VALUES --- use item.hex_colors object array */}
+            {/* <ColorOptionsIcons data={productColorsIcons} /> */}
           </View>
         </View>
 
@@ -264,13 +379,17 @@ const ProductDetailsScreen = (props) => {
 
         <View style={styles.productHighlight}>
           <Text style={styles.highlightHeader}>Product Highlights</Text>
+          <View style={styles.productAccessibilityTagsContainer}>
+            <ProductAccessibilityTags data={item.tag_list.length ? item.tag_list : ["No Tags"]} />
+            {/* //! potentially update this to pull features list from existing review
+            "pros" */}
+          </View>
 
-          <ProductAccessibilityTags data={features.slice(0, 3)} />
           <View style={styles.toggleBackground}>
-            <DropdownDescription />
+            <ToggleProductDescription item={item} />
           </View>
           <View style={styles.toggleBackground}>
-            <DropdownHowTo />
+            <ToggleHowToUse data={productColorsIcons} />
           </View>
 
           <View style={[styles.divider, styles.gap]}></View>
@@ -291,33 +410,27 @@ const ProductDetailsScreen = (props) => {
 
         <Modal
           visible={modalVisible}
-          transparent={true}
           animationType="none"
           onRequestClose={() => setModalVisible(false)}
         >
-          <SafeAreaView style={ModalStyles.howRatingsModal}>
-            <View style={ModalStyles.topText}>
-              <Text style={ModalStyles.headerText}>Rate Products</Text>
-              <TouchableOpacity
-                style={ModalStyles.closeModal}
-                onPress={() => setModalVisible(false)}
-              >
-                <Text style={ModalStyles.close}>Close </Text>
-                <Ionicons name="close" size={24} color="#ffffff" />
-              </TouchableOpacity>
-            </View>
+          <View style={ModalStyles.howRatingsModal}>
+            <Text>Rate Products</Text>
+            <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <Text>Close </Text>
+              <Ionicons name="close" size={24} color="black" />
+            </TouchableOpacity>
             <View>
-              <Text style={ModalStyles.content}>
+              <Text>
                 Customer feedback on whether or not they found the product
                 accessible-complient is aggregates into a total rating.
               </Text>
-              <Text style={ModalStyles.content}>
+              <Text>
                 For example, a positive review can be mapped to an "A" rating, a
                 neutral review can be mapped to a "C" rating and a negative
                 review can be mapped to an "F" rating.
               </Text>
             </View>
-          </SafeAreaView>
+          </View>
         </Modal>
 
         <View style={styles.ratingsContainer}>
@@ -327,15 +440,14 @@ const ProductDetailsScreen = (props) => {
             source={require("../assets/icons/Rating-circle-large.png")}
           /> */}
           <View style={styles.ratingsTextContainer}>
-            <Text style={styles.ratingsText}>A</Text>
+            <Text style={styles.ratingsText}>Maybe</Text>
           </View>
           <Text style={styles.numberOfReviewsText}>
-            40{productColorsIcons.numberOfReviews} Total Reviews
+            {item.reviews ? item.reviews.length : "0"} reviews
           </Text>
         </View>
 
         <View style={styles.prosConsContainer}>
-          {/* Pros */}
           <View style={styles.prosContainer}>
             <Text style={styles.prosConsHeader}>Pros</Text>
             <View style={styles.metersContainer}>
@@ -357,7 +469,6 @@ const ProductDetailsScreen = (props) => {
               </View>
             </View>
           </View>
-          {/* Cons */}
           <View style={styles.consContainer}>
             <Text style={styles.prosConsHeader}>Cons</Text>
             <View style={styles.metersContainer}>
@@ -388,117 +499,64 @@ const ProductDetailsScreen = (props) => {
           <LeaveReviewButton />
         </View>
 
-        <Reviews data={productColorsIcons} />
+        {/* <Reviews data={productColorsIcons} /> */}
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default ProductDetailsScreen;
-
-
-const DropdownStyles = StyleSheet.create({
-  container: {
-    backgroundColor: '#434343',
-    padding: 10,
-  },
-  header: {
-    display: 'flex',
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10,
-    borderRadius: 5,
-  },
-  headerText: {
-    color: "#ffffff",
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  content: {
-
-    marginTop: 10,
-    padding: 10,
-    borderRadius: 5,
-  },
-  text: {
-    marginVertical: 10,
-    color: "#ffffff",
-
-  },
-});
-
-const ReviewStyles = StyleSheet.create({
-  ratingsHeaderContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  date: {
-    color: "#ffffff",
-    alignSelf: "center",
-    marginBottom: 10,
-  },
-  rating: {
-    display: "flex",
-    flexDirection: "row",
-    alignContent: "center",
-  },
-  ratingText: {
-    color: "#ffffff",
-    alignSelf: "center",
-    marginBottom: 10,
-  },
-  image: {
-    marginRight: 10,
-    marginBottom: 10,
-    width: 30,
-  },
-  title: {
-    color: "#ffffff",
-    fontWeight: 700,
-  },
-  text: {
-    color: "#ffffff",
-  },
-});
+export default DataDrivenProductDetailsScreen;
 
 const ModalStyles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+    flex: 1,
+    padding: 20,
+    backgroundColor: "cyan",
+  },
+  texts: {
+    marginTop: 50,
+    padding: 40,
+    fontSize: 32,
+    fontFamily: "Nunito-Black",
+    color: "red",
+  },
+  paragraph: {
+    marginTop: 50,
+    padding: 40,
+    fontSize: 32,
+    color: "green",
+    marginVertical: 8,
+    lineHeight: 18,
+  },
+  lableText: {},
+  input: {
+    borderColor: "black",
+    borderWidth: 1,
+    color: "black",
+    height: 40,
+    borderRadius: 4,
+  },
+  formField: {
+    marginVertical: 8,
+  },
+  button: {},
+  container2: {
+    flex: 1,
+  },
+  errorText: {
+    color: "crimson",
+    fontWeight: "bold",
+    marginBottom: 10,
+    marginTop: 6,
+    textAlign: "center",
+  },
   howRatingsModal: {
-    marginTop: 300,
-    backgroundColor: "#434343",
-    display: "flex",
-    alignSelf: "center",
-    width: 300,
-    paddingHorizontal: 20,
-    paddingVertical: 20,
-    borderRadius: 10,
-    borderColor: "#111111",
-    borderWidth: 1
-  },
-  headerText: {
-    color: "#e3c3ff",
-    fontWeight: 700,
-  },
-  close: {
-    color: "#ffffff",
-    alignSelf: "center",
-  },
-  content: {
-    color: "#FFFFFF",
-    marginVertical: 10,
-  },
-  closeModal: {
+    backgroundColor: "red",
     display: "flex",
     flexDirection: "row",
-    alignContent: "center",
-  },
-  topText: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
+
+  }
 });
 
 const styles = StyleSheet.create({
@@ -561,11 +619,8 @@ const styles = StyleSheet.create({
     fontWeight: 700,
     color: "white",
   },
-  fav: {
-    marginRight: 20,
-  },
   favoriteIcon: {
-    marginLeft: 80,
+    marginLeft: 100,
     display: "flex",
     justifyContent: "center",
     alignSelf: "center",
@@ -577,12 +632,8 @@ const styles = StyleSheet.create({
   },
   colorOptionsContainer: {
     alignItems: "center",
-    display: "flex",
-    justifyContent: "center",
-    flexDirection: "column",
-    textAlign: "center",
-    margin: 5,
-    padding: 0,
+    margin: 10,
+    padding: 1,
   },
   icon: {
     marginLeft: -10,
@@ -599,17 +650,22 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
   },
+  productAccessibilityTagsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+  },
   tagsBackgroundColor: {
     backgroundColor: "#FFF3C3",
     marginHorizontal: 10,
     borderRadius: 50,
     marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   tags: {
     paddingHorizontal: 20,
     marginHorizontal: 20,
-    marginVertical: 10,
+    marginVertical: 20,
   },
   toggleContainer: {
     display: "flex",
@@ -638,8 +694,8 @@ const styles = StyleSheet.create({
   howRatingsWork: {
     display: "flex",
     flexDirection: "row",
-
-    marginLeft: 10,
+    justifyContent: "flex-end",
+    marginRight: 10,
     alignItems: "center",
   },
   howRatingsWorkText: {
@@ -662,8 +718,8 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     marginHorizontal: 21,
     marginVertical: 20,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 27,
   },
   ratingsText: {
     color: "white",
@@ -690,14 +746,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#E3C3FF",
   },
   prosContainer: {
-    width: 190,
+    width: 210,
     height: 150,
     paddingLeft: 15,
     paddingRight: 10,
     backgroundColor: "#111111",
   },
   consContainer: {
-    width: 200,
+    width: 220,
     height: 150,
     marginLeft: 2,
     paddingRight: 10,

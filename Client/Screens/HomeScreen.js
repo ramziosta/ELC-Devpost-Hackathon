@@ -15,10 +15,12 @@ import {
   accessibleBrands,
   recentlyAdded,
 } from "../Constants/BeautyData";
-import {Data} from '../Constants/Data'
-console.log(Data);
+import { Data } from '../Constants/Data'
+import { TextInput } from "react-native-gesture-handler";
+import SearchBar from "../Components/SearchBar";
 
 const HomeScreen = (props) => {
+
   return (
     <View style={styles.body}>
       <ScrollView>
@@ -27,7 +29,7 @@ const HomeScreen = (props) => {
           source={require("../assets/icons/NameLogo.png")}
           style={styles.logo}
         />
-        <DropdownSearchBar />
+        <SearchBar />
         <View style={styles.scroll}>
           <FeaturesList data={features} />
           <HighlyRated data={highlyRated} />
@@ -55,6 +57,17 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 10,
     marginRight: 10,
+  },
+  searchBar: {
+    paddingLeft: 10,
+    backgroundColor: "lightgrey",
+    marginTop: 10,
+    height: 40,
+    borderRadius: 50,
+    borderColor: "black",
+    borderWidth: 1,
+    color: "black",
+    borderRadius: 50,
   },
   scroll: {
     height: "100%",

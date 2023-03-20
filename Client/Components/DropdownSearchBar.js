@@ -9,7 +9,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 const data = [
-  { id: 1, name: "Product Feature" },
   { id: 2, name: "Makeup" },
   { id: 3, name: "Skincare" },
   { id: 4, name: "Hair" },
@@ -21,21 +20,15 @@ const DropdownSearchBar = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [filteredData, setFilteredData] = useState(data);
-
+  const nav = useNavigation();
   const handleSearch = (text) => {
-    setSearchTerm(text);
-    const newData = data.filter((item) => {
-      const itemData = item.name.toLowerCase();
-      const textData = text.toLowerCase();
-      return itemData.indexOf(textData) > -1;
-    });
-    setFilteredData(newData);
+    nav.navigate("SearchTermScreen", { term: text });
   };
 
   const renderItem = ({ item }) => {
     return (
       <TouchableOpacity
-      key={item.id} onPress={() => setModalVisible(false)}>
+        key={item.id} onPress={() => setModalVisible(false)}>
         {/* //< Data HERE --------- Name */}
         <Text style={styles.item}>{item.name}</Text>
       </TouchableOpacity>
@@ -44,17 +37,18 @@ const DropdownSearchBar = () => {
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchBar}
-        placeholder="🔍 Search"
-        value={searchTerm}
-        onChangeText={handleSearch}
-        onFocus={() => setModalVisible(true)}
-        keyboardType="default"
-        autoCapitalize="none"
-        autoCorrect={false}
-      />
       <Modal visible={modalVisible}>
+        <TextInput
+          style={styles.searchBar}
+          placeholder="🔍 Search"
+          value={searchTerm}
+          onSubmitEditing={(v) => nav.navigate("SearchTermScreen", { term: v })}
+          // onChangeText={handleSearch}
+          onFocus={() => setModalVisible(true)}
+          keyboardType="default"
+          autoCapitalize="none"
+          autoCorrect={false}
+        />
         <View style={styles.modal}>
           <FlatList
             data={filteredData}

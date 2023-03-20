@@ -2,13 +2,12 @@ import React from "react";
 import { FlatList, TouchableOpacity, View, Text, Image, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const FeaturesList = ({ data, handlePress }) => {
-const nav = useNavigation();
-
+const FeaturesList = ({ data }) => {
+  const nav = useNavigation();
 
   const renderItem = ({ item, id }) => (
-    
-    <TouchableOpacity key={item.id} onPress={handlePress}>
+
+    <TouchableOpacity key={item.id} onPress={() => nav.navigate("SearchTermScreen", { term: item.tag_list.replace(/(\r\n|\n|\r)/gm, "") })}>
       <View style={styles.item}>
         {/* //< Data Here ICON can be saved in app */}
         <Image source={item.accessibilityIcon} />
@@ -17,18 +16,18 @@ const nav = useNavigation();
         {/* //< Suplimentary data tag list */}
         {item.tag_list}
       </Text>
-    </TouchableOpacity>
+    </TouchableOpacity >
   );
 
   return (
     <View >
-       <View style={styles.horizontal}>
+      <View style={styles.horizontal}>
         <Text style={styles.title}>Features</Text>
         {/* //< SEE ALL navigates to Category screen */}
-        <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Features")}>
+        {/* <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Features")}>
           <Text style={styles.text}>See All </Text>
           <Image style={styles.rightArrow} source={require("../assets/png/rightArrow.png")} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
       <FlatList
@@ -127,5 +126,5 @@ const styles = StyleSheet.create({
     textAlignVertical: "center",
     padding: 3,
   }
- 
+
 });

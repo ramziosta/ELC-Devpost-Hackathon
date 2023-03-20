@@ -1,29 +1,11 @@
 
 const resultsPerQuery = 25;
 
-const graphQLQuery = async (token, query) => {
-	const endpoint = "https://us-central1.gcp.realm.mongodb.com/api/client/v2.0/app/elc-makeup-app-kerwc/graphql";
-	const headers = {
-		"content-type": "application/json",
-		"Authorization": `Bearer ${token}`,
-	};
-	const options = {
-		"method": "POST",
-		"headers": headers,
-		"body": JSON.stringify(query)
-	};
-	try {
-		const response = await fetch(endpoint, options);
-		const json = await response.json();
-		console.log(json.errors)
-		return json?.data;
-	}
-	catch (err) {
-		console.log(err);
-	}
+export const graphQLQuery = async (token, query) => {
+
 }
 
-export const fetchAllProducts = async(token, resultsIndex) => {
+export const fetchAllProducts = async (token, resultsIndex) => {
 	const query = {
 		// "operationName": "Query",
 		"query": `query {

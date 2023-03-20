@@ -49,10 +49,10 @@ const AccessibleBrands = ({ data, handlePress }) => {
       <View style={styles.horizontal}>
         <Text style={styles.text}>Accessible Brands</Text>
         {/* //< SEE ALL navigates to Category screen */}
-        <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Category")}>
+        {/* <TouchableOpacity style={styles.navContainer} onPress={() => nav.navigate("Category")}>
           <Text style={styles.text2}>See All </Text>
           <Image style={styles.rightArrow} source={require("../assets/png/rightArrow.png")} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
       <FlatList
         data={data}

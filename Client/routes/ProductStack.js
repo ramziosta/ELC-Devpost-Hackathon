@@ -1,5 +1,5 @@
 // This page contain use of Stack Navigation only. We have 2 stacks
-// 1. Main Stack 2. Product Stack 
+// 1. Main Stack 2. Product Stack
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import {
@@ -19,6 +19,8 @@ import {
   ThreeDScreen3,
   ThreeDScreen4,
 } from "../Screens/index";
+import SearchTermScreen from "../Screens/SearchTermScreen";
+import DataDrivenProductDetailsScreen from "../Screens/DataDrivenProductDetailsScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +33,9 @@ const ProductStack = () => {
       <Stack.Screen name="Main" component={HomeScreen} />
       <Stack.Screen name="Features" component={FeaturesScreen} />
       <Stack.Screen name="Category" component={CategoryScreen} />
+      <Stack.Screen name="SearchTermScreen" component={SearchTermScreen} />
       <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
+      <Stack.Screen name="DataDrivenProductDetailsScreen" component={DataDrivenProductDetailsScreen} />
       <Stack.Screen name="ProductDetails2" component={ProductDetailsScreen2} />
       <Stack.Screen name="ProductDetails3" component={ProductDetailsScreen3} />
       <Stack.Screen name="ProductDetails4" component={ProductDetailsScreen4} />
