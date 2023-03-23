@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 9e6417aceb1d643ab8643597077b60bd71053949
-# Accessible Beauty Hackathon App
-
 This app is our team's submission to the ELC Accessible Beauty Hackathon. Our goal was to ideate and develop an inclusive technology solution that enhances accessibility in the beauty industry and improves the consumer's beauty experience.
 
 ## App Description
