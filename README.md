@@ -30,7 +30,7 @@ To get a better understanding of the app's features and capabilities, check out 
 
 
 
-[![IMAGE ALT TEXT HERE](./assets/images/simulator_screenshot_7DBC1025-DBF6-41A3-8387-9EC58BC8BC69.png)](https://drive.google.com/file/d/1xOVtf8VzF7qrC4IozUrDA_yKkQc1XG88/view)
+[![IMAGE ALT TEXT HERE](./assets/images/simulator_screenshot_7DBC1025-DBF6-41A3-8387-9EC58BC8BC69.png)](https://youtu.be/NIHzKCT-fCk)
 
 [![IMAGE ALT TEXT HERE](./client/assets/images/simulator_screenshot_7DBC1025-DBF6-41A3-8387-9EC58BC8BC69.png)](https://drive.google.com/file/d/1xOVtf8VzF7qrC4IozUrDA_yKkQc1XG88/view)
 
